@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>e-Portal Services</title>
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-color: #fdfdfd;
+    }
+
+    /* Header row */
+    .header {
+        background-color: lightcoral;
+        color: white;
+        text-align: center;
+        padding: 15px;
+        font-size: 2em;
+        font-weight: bold;
+    }
+
+    /* Second row layout */
+    .date-time-row {
+        display: grid;
+        grid-template-columns: 1fr 2fr 2fr 2fr 2fr;
+        background-color: teal;
+        color: white;
+        padding: 10px;
+        align-items: center;
+        font-weight: bold;
+    }
+
+    .date-time-row div {
+        padding: 5px;
+    }
+
+    #date {
+        text-align: center;
+    }
+
+    #time {
+        text-align: right;
+        padding-right: 25px; /* about 1 inch before right edge */
+    }
+
+    /* Reduced blank space */
+    .spacer {
+        height: 60px;
+    }
+
+    /* Blink text */
+    .blink {
+        text-align: center;
+        font-size: 2em;
+        font-weight: bold;
+        color: red;
+        background-color: lightgreen;
+        padding: 10px;
+        animation: blinker 1.2s linear infinite;
+    }
+
+    @keyframes blinker {
+        50% { opacity: 0; }
+    }
+
+    /* Bold line below blinking text */
+    .below-blink {
+        text-align: center;
+        font-weight: bold;
+        margin-top: 10px;
+    }
+
+    /* Marquee text */
+    marquee {
+        font-size: 1.2em;
+        color: blue;
+        font-weight: bold;
+    }
+
+    /* Table styles */
+    table {
+        width: 90%;
+        margin: 20px auto;
+        border-collapse: collapse;
+        font-size: 1em;
+    }
+
+    td {
+        border: 1px solid #333;
+        padding: 8px;
+        vertical-align: top;
+    }
+
+    tr:nth-child(odd) {
+        background-color: #f2f2f2;
+    }
+
+    tr:nth-child(even) {
+        background-color: #e8f5e9;
+    }
+
+    td:first-child {
+        width: 35%;
+        font-weight: bold;
+    }
+
+    td:nth-child(2) {
+        width: 5%;
+        text-align: center;
+    }
+
+    td:nth-child(3) {
+        width: 60%;
+    }
+
+    /* Button style */
+    .btn {
+        display: block;
+        margin: 30px auto;
+        background-color: lightgreen;
+        color: darkred;
+        font-weight: bold;
+        border: none;
+        padding: 15px 30px;
+        border-radius: 10px;
+        font-size: 1.2em;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    .btn:hover {
+        background-color: #a5d6a7;
+    }
+
+    /* Published line */
+    .published {
+        text-align: left;
+        margin: 20px;
+        font-weight: bold;
+    }
+
+    /* Responsive design */
+    @media (max-width: 768px) {
+        .header {
+            font-size: 1.5em;
+        }
+
+        table {
+            font-size: 0.9em;
+        }
+
+        .btn {
+            width: 90%;
+            font-size: 1em;
+        }
+
+        #time {
+            text-align: right;
+            padding-right: 10px;
+        }
+    }
+</style>
+</head>
+<body>
+
+<!-- First Row -->
+<div class="header">
+    e-Portal Services
+</div>
+
+<!-- Second Row with Date in 2nd Column and Time Right-aligned -->
+<div class="date-time-row">
+    <div></div>
+    <div id="date"></div>
+    <div></div>
+    <div></div>
+    <div id="time"></div>
+</div>
+
+<!-- Reduced Blank Space -->
+<div class="spacer"></div>
+
+<!-- Blinking Text -->
+<div class="blink">INTIMATION</div>
+<br>
+<!-- Bold line below blinking text -->
+<div class="below-blink">Please review all application details carefully before proceeding.</div>
+<br>
+<!-- Marquee Line -->
+<marquee behavior="scroll" direction="left">
+    The Applicant must comply the instruction. And, the Verification adjourned to after five days.
+</marquee>
+
+<!-- Applicant Details Table -->
+<table>
+    <tr>
+        <td>Name of the Applicant</td><td>:</td><td>K.ANITHA</td>
+    </tr>
+    <tr>
+        <td>Address</td><td>:</td><td>D.No24, Budhar Nagar,<br>Kizhachur,<br>Pallikonda, <br>Anicut Taluk,<br>Vellore</td>
+    </tr>
+    <tr>
+        <td>Police Station/Sub-division</td><td>:</td><td> Pallikonda // Anaicut Sub-Division ( As per Official Ordered by the Narcotics Control Bureau (NCB), Chennai HQ ) </td>
+    </tr>
+    <tr>
+        <td>Name of the Court</td><td>:</td><td>Special District Court / Special Court for Exclusive Trial of POCSO Cases</td>
+    </tr>
+    <tr>
+        <td>Reason of the Application</td><td>:</td><td>Police falsely lodged a case. Hence. Approch and Submit Documents before the Hon'ble High Court of Madras</td>
+    </tr>
+    <tr>
+        <td>Court Fees as per Tamil Nadu Court-Fees And Suits Valuation Act</td><td>:</td><td>Rs.11,700</td>
+    </tr>
+</table>
+
+<!-- Additional Instruction Table -->
+<table>
+    <tr>
+        <td>Additional Instruction</td><td>:</td><td>The applicant must submit relevant postal charges and stamped affixed 7 envelopes</td>
+    </tr>
+</table>
+
+<!-- Button -->
+<button class="btn">Conduct Your Counsel</button>
+
+<!-- Published Line -->
+<div class="published">Published on portal on 04/11/2025</div>
+
+<!-- Date & Time Script -->
+<script>
+    function updateDateTime() {
+        const now = new Date();
+        document.getElementById('date').innerText = now.toLocaleDateString();
+        document.getElementById('time').innerText = now.toLocaleTimeString();
+    }
+    setInterval(updateDateTime, 1000);
+    updateDateTime();
+</script>
+
+</body>
+</html>
